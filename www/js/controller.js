@@ -214,7 +214,9 @@ uver.controller('orderCtrl', ['$scope', '$rootScope', '$location','$stateParams'
     function($scope, $rootScope, $location, $stateParams,$http, orderService) {
 
         var id              = $stateParams.param1;
-        $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        if(localStorage.getItem('merchant')){
+            $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        }
         $scope.order_id     = id;
         $scope.orderApproved    = function () {
             $location.path('/app/orderApproved');
@@ -223,7 +225,9 @@ uver.controller('orderCtrl', ['$scope', '$rootScope', '$location','$stateParams'
 ]);
 uver.controller('orderDetailCtrl', ['$scope', '$rootScope', '$location','$stateParams','$http', 'orderService',
     function($scope, $rootScope, $location, $stateParams,$http, orderService) {
-        $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        if(localStorage.getItem('merchant')){
+            $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        }
         var id              = $stateParams.param1;
         result  = orderService.detailOrderRequest($scope, $http, $location, id).then(function (result) {
             if(result){
