@@ -1,0 +1,94 @@
+<ion-view title="Rangkuman Pesanan">
+  <ion-content class="addPayment">
+     <div class="content" style="top: -50px;">
+         <img src="{{map_image}}"/>
+         <form name="formuser" ng-submit="createOrder(data)">
+             <div class="list uver-form">
+                <div class="box-summary">
+                    <p class="title">Alamat <button class="button-clear color-uver" type="button" ng-click="getDeliver()" title="Ubah"><i class="fa fa-pencil"></i></button></p>
+                    <p>
+                        {{full_address}}
+                        <br/>
+                        <i class="fa fa-info"></i>
+                        <i class="info">
+                            {{address_note}}
+                        </i>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="box-summary">
+                            <p class="title">Nama / No hp <button class="button-clear color-uver" type="button" ng-click="profileField()" title="Ubah"><i class="fa fa-pencil"></i></button></p>
+                            <p>
+                                {{user.full_name}}
+                                {{user.phone}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="box-summary">
+                            <p class="title">Paket <button class="button-clear color-uver" type="button" ng-click="selectPackage()" title="Ubah"><i class="fa fa-pencil"></i></button></p>
+                            <p>
+                                Rp {{package}}/kg
+                                @{{estimate}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="box-summary">
+                    <div class="row">
+                        <div class="column">
+                            <p class="title">Paket {{package_text}} @{{estimate}}Kg</p>
+                        </div>
+                        <div class="column">
+                            <div class="float-right">
+                                {{package_total}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <p class="title">Biaya Pickup (PROMO)</p>
+                        </div>
+                        <div class="column">
+                            <div class="float-right">
+                                0
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="column">
+                            <p class="red title">Total (Estimasi)</p>
+                        </div>
+                        <div class="column">
+                            <div class="float-right">
+                                <b>Rp {{package_total}}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="low-line">
+                    <p>
+                        <i class="info">Total aktual biaya akan dihitung berdasarkan berat timbangan oleh kurir saat menjemput laundry Anda</i>
+                    </p>
+                </div>
+                <br/>
+
+                <div class="list list-inset uver-form login-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Catatan (opsional)</span>
+                        <textarea class="field-textarea" name="note" ng-model="data.note" placeholder="Tambahkan pesan tambahan jika ada">{{data.note}}</textarea>
+                    </label>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="button uver-btn btn-cancel">Pesan Sekarang</button>
+            <button type="button" ng-click="selectPackage()" class="button button-block button-clear color-uver uver-text-clear">
+                Kembali
+            </button>
+         </form>
+    </div>
+  </ion-content>
+</ion-view>

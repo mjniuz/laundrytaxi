@@ -1,0 +1,34 @@
+<ion-view title="Isi data diri">
+  <ion-content class="cancel">
+        <div class="content">
+            <form name="formuser" ng-submit="validatePhone(user)">
+                <div class="list list-inset uver-form login-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nama</span>
+                        <input type="text" placeholder="Masukan Nama Anda" ng-model="user.full_name" value="{{user.full_name}}">
+                        <div ng-if="err.full_name"><span class="ion-alert red"> {{err.full_name}}</span></div>
+                        <input type="hidden" value="{{ checkMapExist() }}">
+                    </label>
+                </div>
+                <div class="list list-inset uver-form login-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">No Hp</span>
+                        <input type="text" placeholder="No Hp" ng-model="user.phone" value="{{user.phone}}">
+                        <div ng-if="err.phone"><span class="ion-alert red"> {{err.phone}}</span></div>
+                    </label>
+                </div>
+                <div class="cancel-button">
+                  <button type="submit" class="uver-btn btn-cancel">Lanjut ke Pilih Paket</button>
+                  <button type="button" ng-click="getDeliver();" class="button button-block button-clear color-uver uver-text-clear">
+                      Kembali
+                  </button>
+                </div>
+            </form>
+        </div>
+  </ion-content>
+    <div class="dot-container">
+        <span class="dot-ico active"></span>
+        <span class="dot-ico active"></span>
+        <span class="dot-ico"></span>
+    </div>
+</ion-view>

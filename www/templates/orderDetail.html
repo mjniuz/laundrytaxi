@@ -1,0 +1,157 @@
+<ion-view title="Order Detail">
+    <ion-nav-buttons side="left">
+        <button type="button" class="button-clear uver-nav-button" ng-click="dashboard()">
+            <i class="fa fa-home"></i>
+        </button>
+    </ion-nav-buttons>
+  <ion-content class="addPayment">
+     <div class="content" style="top: -50px;">
+         <h4 style="text-align: center" class="red">
+             {{order.invoice_no}}
+         </h4>
+         <br/>
+         <table style="width: 100%;text-align: center;border: 1px #9c96ff solid;">
+             <tbody>
+             <tr>
+                 <td>
+                     Dipesan
+                 </td>
+                 <td>
+                     Pickup
+                 </td>
+                 <td>
+                     Diproses
+                 </td>
+                 <td>
+                     Selesai
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     <i class="fa fa-check"></i>
+                 </td>
+                 <td>
+                     <i ng-if="order.pickup_at === null" class="fa clock ">&nbsp;</i>
+                     <i ng-if="order.pickup_at !== null" class="fa fa-check"></i>
+                 </td>
+                 <td>
+                     <i ng-if="order.process_at === null" class="fa fa-clock">&nbsp;</i>
+                     <i ng-if="order.process_at !== null" class="fa fa-check"></i>
+                 </td>
+                 <td>
+                     <i ng-if="order.delivered_at === null" class="fa fa-clock">&nbsp;</i>
+                     <i ng-if="order.delivered_at !== null" class="fa fa-check"></i>
+                 </td>
+             </tr>
+             </tbody>
+         </table>
+         <br/>
+
+         <div style="text-align: center">
+             <p class="title">Detail Anda</p>
+         </div>
+         <div class="list uver-form">
+             <div class="box-summary">
+                 <p class="title">Alamat</p>
+                 <p>
+                     {{order.full_address}}
+                     <br/>
+                     <i class="fa fa-info"></i>
+                     <i class="info">
+                         {{order.address_note}}
+                     </i>
+                 </p>
+             </div>
+             <br/>
+             <div class="box-summary">
+                 <div class="row">
+                     <div class="column">
+                         <p class="title">Paket {{order.package}} @{{order.estimate}}Kg</p>
+                     </div>
+                     <div class="column">
+                         <div class="float-right">
+                             {{order.package_total}}
+                         </div>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="column">
+                         <p class="title">Biaya Pickup (PROMO)</p>
+                     </div>
+                     <div class="column">
+                         <div class="float-right">
+                             0
+                         </div>
+                     </div>
+                 </div>
+                 <hr/>
+                 <div class="row">
+                     <div class="column">
+                         <p class="red title">Total <span ng-if="order.is_estimate">(Estimasi)</span>
+                             <span ng-if="!order.is_estimate">(Actual)</span>
+                         </p>
+                     </div>
+                     <div class="column">
+                         <div class="float-right">
+                             <b>Rp {{order.package_total}}</b>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="low-line">
+                 <p>
+                     <i class="info" ng-if="order.is_estimate">Total aktual biaya akan dihitung berdasarkan berat timbangan oleh kurir saat menjemput laundry Anda</i>
+                 </p>
+             </div>
+             <br/>
+
+             <div class="list list-inset uver-form login-form">
+                 <label class="item item-input item-stacked-label">
+                     <span class="input-label">Catatan (opsional)</span>
+                 </label>
+             </div>
+         </div>
+
+         <div style="text-align: center">
+             <p class="title">Merchant Laundry</p>
+         </div>
+         <div class="list uver-form">
+            <div class="row">
+                <div class="column">
+                    <div class="box-summary">
+                        <p class="title">Alamat</p>
+                        <p>
+                            {{order.merchant.address}}
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box-summary">
+                        <p class="title">Merchant / No HP</p>
+                        <p>
+                            {{order.merchant.name}}
+                            <a href="tel:{{order.merchant.phone}}">
+                                {{order.merchant.phone}}
+                            </a>
+                        </p>
+                        <p>
+                            <img src="{{order.merchant.avatar}}" width="50" height="50"/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="low-line">
+                <!--<p>
+                    <i class="info">Anda akan segera dihubungi oleh merchant untuk melakukan penjemputan ke tempat Anda, pastikan no HP Anda aktif selalu</i>
+                </p>-->
+            </div>
+        </div>
+        <br />
+        <button type="button" ng-click="dashboard()" class="button uver-btn btn-cancel">Home</button>
+        <button type="button" ng-click="orderList()" class="button button-block button-clear color-uver uver-text-clear">
+            List Pesanan
+        </button>
+    </div>
+  </ion-content>
+</ion-view>

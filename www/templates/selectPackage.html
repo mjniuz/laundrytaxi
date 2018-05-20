@@ -1,0 +1,69 @@
+<ion-view title="Pilih Paket Laundry">
+  <ion-content class="cancel">
+        <div class="content">
+            <form name="formpackage" ng-submit="summaryOrder(pack)">
+                <div class="list">
+                    <label class="item item-radio">
+                        <input type="radio" name="package" value="6000" ng-model="pack.package">
+                        <div class="item-content">
+                            Rp 6.000/kg (3 Hari)
+                        </div>
+                    </label>
+                    <label class="item item-radio">
+                        <input type="radio" name="package" value="8000" ng-model="pack.package">
+                        <div class="item-content">
+                            Rp 8.000/kg (2 Hari)
+                        </div>
+                    </label>
+                    <label class="item item-radio">
+                        <input type="radio" name="package" value="10000" ng-model="pack.package">
+                        <div class="item-content">
+                            Rp 10.000/kg (1 Hari)
+                        </div>
+                    </label>
+                    <div ng-if="err.status"><span class="ion-alert red"> {{err.pack.package}}</span></div>
+                </div>
+                <div class="list list-inset uver-form login-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Estimasi Kg (angka)</span>
+                        <input type="number" name="estimate" ng-model="pack.estimate" value="{{pack.estimate}}" placeholder="Contoh: 5">
+                    </label>
+
+                    <div ng-if="err.status"><span class="ion-alert red"> {{err.pack.estimate}}</span></div>
+                </div>
+                <!--<br/>
+                <div class="list list-inset uver-form login-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Waktu pickup</span>
+                    </label>
+                    <div class="row">
+                        <div class="column">
+                            <p>Jam</p>
+                            <p>
+                                <input type="text" name="estimate" ng-model="pack.estimate" value="{{pack.estimate}}">
+                            </p>
+                        </div>
+                        <div class="column">
+                            <p>Menit</p>
+                            <p>
+                                <input type="text" name="estimate" ng-model="pack.estimate" value="{{pack.estimate}}">
+                            </p>
+                        </div>
+                    </div>
+                </div>-->
+
+                <div class="cancel-button">
+                  <button type="submit" class="button uver-btn btn-cancel">Rangkuman Pesanan</button>
+                  <button type="button" ng-click="profileField();" class="button button-block button-clear color-uver uver-text-clear">
+                      Kembali
+                  </button>
+                </div>
+            </form>
+        </div>
+  </ion-content>
+    <div class="dot-container">
+        <span class="dot-ico active"></span>
+        <span class="dot-ico active"></span>
+        <span class="dot-ico active"></span>
+    </div>
+</ion-view>

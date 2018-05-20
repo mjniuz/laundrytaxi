@@ -1,0 +1,45 @@
+<ion-view title="Order Diterima">
+  <ion-content class="addPayment">
+     <div class="content" style="top: -50px;">
+         <div style="text-align: center">
+             <img src="{{merchant.avatar}}"/>
+         </div>
+         <p style="text-align: center">
+             {{merchant.name}}
+         </p>
+         <div class="list uver-form">
+            <div class="row">
+                <div class="column">
+                    <div class="box-summary">
+                        <p class="title">Alamat</p>
+                        <p>
+                            {{merchant.address}}
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box-summary">
+                        <p class="title">No HP</p>
+                        <p>
+                            <a href="tel:{{merchant.phone}}">
+                                {{merchant.phone}}
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="low-line">
+                <p>
+                    <i class="info">Anda akan segera dihubungi oleh merchant untuk melakukan penjemputan ke tempat Anda, pastikan no HP Anda aktif selalu</i>
+                </p>
+            </div>
+        </div>
+        <br />
+        <button type="button" ng-click="orderDetailRedirect(order_id)" class="button uver-btn btn-cancel">Detail Pesanan</button>
+        <button type="button" ng-click="selectPackage()" class="button button-block button-clear color-uver uver-text-clear">
+            List Pesanan
+        </button>
+    </div>
+  </ion-content>
+</ion-view>

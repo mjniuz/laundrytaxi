@@ -1,0 +1,5 @@
+Version 1.1
+- add font awesome and Pe-icon-7-stroke
+- change code-structure
+- screen-size for iPhone 5
+- add scss

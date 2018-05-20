@@ -1,0 +1,82 @@
+// Browser Prefixes - Which CSS prefixes should be used?
+$webkit: true;
+$moz: true;
+$ms: true;
+$o: true;
+
+// prefix declarations
+@mixin prefixed($property, $value) {
+  @if $webkit == true {
+    -webkit-#{$property}: #{$value};
+  }
+
+  @if $moz == true {
+    -moz-#{$property}: #{$value};
+  }
+
+  @if $ms == true {
+    -ms-#{$property}: #{$value};
+  }
+
+  @if $o == true {
+    -o-#{$property}: #{$value};
+  }
+
+  #{$property}: #{$value};
+}
+
+// prefix keyframes
+@mixin keyframes($name) {
+  @if $webkit == true {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $moz == true {
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $ms == true {
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $o == true {
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// placeholder class declarations
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+// Middle content
+@mixin middle {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+// Extend
+%transition_ease {
+  @include prefixed(transition, all .2s ease);
+}

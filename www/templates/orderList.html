@@ -1,0 +1,45 @@
+<ion-view title="List Order">
+    <ion-nav-buttons side="left">
+        <button type="button" class="button-clear uver-nav-button" ng-click="dashboard()">
+            <i class="fa fa-home"></i>
+        </button>
+    </ion-nav-buttons>
+  <ion-content class="addPayment">
+     <div class="content" style="top: -50px;">
+         <div class="list uver-form">
+             <h4>
+                 List Order Anda
+             </h4>
+             <table style="width: 100%;">
+                 <thead>
+                 <tr style="height: 30px;">
+                     <td>
+                         Invoice
+                     </td>
+                     <td>
+                         Date
+                     </td>
+                     <td>
+                         #
+                     </td>
+                 </tr>
+                 </thead>
+                 <tr ng-repeat="(key, order) in orders" style="height: 30px;">
+                     <td> {{order.invoice_no}} </td>
+                     <td> {{order.created_at}} </td>
+                     <td>
+                         <button type="button" ng-click="orderDetailRedirect(order.id)" class="button-clear color-uver uver-text-clear">
+                             <i class="fa fa-search"></i>
+                         </button>
+                     </td>
+                 </tr>
+             </table>
+         </div>
+         <br/>
+        <button type="button" ng-click="getDeliver()" class="button uver-btn btn-cancel">Pesan Laundry</button>
+        <button type="button" ng-click="dashboard()" class="button button-block button-clear color-uver uver-text-clear">
+            Kembali
+        </button>
+    </div>
+  </ion-content>
+</ion-view>
