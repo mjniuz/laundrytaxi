@@ -96,7 +96,7 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
         if(localStorage.getItem('location')){
             $scope.lat          = JSON.parse(localStorage.getItem('location')).lat;
         }
-        $scope.map_image    = 'https://maps.googleapis.com/maps/api/staticmap?center='+$scope.lat+','+$scope.lng +'&zoom=13&scale=1&size=300x110&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C'+$scope.lat+','+$scope.lng;
+        $scope.map_image    = 'http://maps.googleapis.com/maps/api/staticmap?center='+$scope.lat+','+$scope.lng +'&zoom=13&scale=1&size=300x110&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C'+$scope.lat+','+$scope.lng;
 
         /*start modal*/
         var $ctrl = $scope;
