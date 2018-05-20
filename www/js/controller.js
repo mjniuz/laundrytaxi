@@ -90,8 +90,12 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
         $scope.package_total    = Number(($scope.package * $scope.estimate).toFixed(1)).toLocaleString();
         $scope.full_address = localStorage.getItem('full_address');
         $scope.address_note = localStorage.getItem('address_note');
-        $scope.lng          = JSON.parse(localStorage.getItem('location')).lng;
-        $scope.lat          = JSON.parse(localStorage.getItem('location')).lat;
+        if(localStorage.getItem('location')){
+            $scope.lng          = JSON.parse(localStorage.getItem('location')).lng;
+        }
+        if(localStorage.getItem('location')){
+            $scope.lat          = JSON.parse(localStorage.getItem('location')).lat;
+        }
         $scope.map_image    = 'https://maps.googleapis.com/maps/api/staticmap?center='+$scope.lat+','+$scope.lng +'&zoom=13&scale=1&size=300x110&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C'+$scope.lat+','+$scope.lng;
 
         /*start modal*/
