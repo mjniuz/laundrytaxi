@@ -1,4 +1,4 @@
-var mainURL = 'http://cuber.local/api/';
+// var mainURL = 'http://cuber.local/api/';
 uver.factory('serve', function() {
     var serve   = {};
     var err     = {
