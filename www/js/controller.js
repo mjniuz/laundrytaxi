@@ -184,7 +184,7 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
             $location.path('/app/validatePhone');
             var err   = serve.checkProfilePost($scope,$location,user);
             if(err.status === true){
-                document.getElementById("result-message").innerHTML = err.message;
+                document.getElementById("result-message").innerHTML = "Harap periksa lagi form Anda";
 
                 return false;
             }
