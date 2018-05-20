@@ -88,8 +88,8 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
 
         };
         $scope.package_total    = Number(($scope.package * $scope.estimate).toFixed(1)).toLocaleString();
-        $scope.full_address = localStorage.getItem('full_address');
-        $scope.address_note = localStorage.getItem('address_note');
+        $scope.full_address = (localStorage.getItem('full_address')) ? localStorage.getItem('full_address') : '';
+        $scope.address_note = (localStorage.getItem('address_note')) ? localStorage.getItem('address_note') : '';
         if(localStorage.getItem('location')){
             $scope.lng          = JSON.parse(localStorage.getItem('location')).lng;
         }
