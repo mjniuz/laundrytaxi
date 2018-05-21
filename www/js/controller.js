@@ -98,6 +98,11 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
         }
         $scope.map_image    = 'http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyA4cvpCYxiYr2gbDptRIEAY4nF9dF0j--s&center='+$scope.lat+','+$scope.lng +'&zoom=13&scale=1&size=300x110&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C'+$scope.lat+','+$scope.lng;
 
+        var token     = localStorage.getItem('remember_token');
+        $scope.loggedIn    = (typeof token !== 'undefined' && token !== null &&  token !== '');
+        $scope.home         = function () {
+            $location.path('/app/home');
+        };
         /*start modal*/
         var $ctrl = $scope;
 

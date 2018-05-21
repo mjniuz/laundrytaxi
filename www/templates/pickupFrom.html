@@ -5,7 +5,10 @@
     </button>
   </ion-nav-buttons>
   <ion-nav-buttons side="left">
-    <button type="button" class="button-clear uver-nav-button" ng-click="dashboard()">
+    <button ng-if="loggedIn === true" type="button" class="button-clear uver-nav-button" ng-click="dashboard()">
+      <i class="fa fa-home"></i>
+    </button>
+    <button ng-if="loggedIn === false" type="button" class="button-clear uver-nav-button" ng-click="home()">
       <i class="fa fa-home"></i>
     </button>
   </ion-nav-buttons>
