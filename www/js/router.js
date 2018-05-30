@@ -113,6 +113,12 @@ uver.config(function($stateProvider, $urlRouterProvider) {
     url: '/deliverTracking',
     templateUrl: 'templates/deliverTracking.html',
     controller: 'pickupCtrl'
+  })
+  .state('app.version', {
+      cache: false,
+      url: '/version',
+      controller: 'versionCtrl',
+      templateUrl: 'templates/update.html'
   });
   $urlRouterProvider.otherwise("/app/home");
 });

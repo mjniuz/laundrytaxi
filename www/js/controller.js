@@ -258,3 +258,9 @@ uver.controller('orderListCtrl', ['$scope', '$rootScope', '$location','$statePar
 
     }]
 );
+
+uver.controller('versionCtrl', ['$scope', '$rootScope', '$location',
+    function($scope, $rootScope, $location) {
+        $scope.link_update  = link_update;
+    }]
+);

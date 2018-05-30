@@ -5,7 +5,10 @@
     </button>
   </ion-nav-buttons>
   <ion-nav-buttons side="left">
-    <button type="button" class="button-clear uver-nav-button" ng-click="dashboard()">
+    <button ng-if="loggedIn === true" type="button" class="button-clear uver-nav-button" ng-click="dashboard()">
+      <i class="fa fa-home"></i>
+    </button>
+    <button ng-if="loggedIn === false" type="button" class="button-clear uver-nav-button" ng-click="home()">
       <i class="fa fa-home"></i>
     </button>
   </ion-nav-buttons>
@@ -35,7 +38,7 @@
         </form>
       </div>
     </script>
-    <div map-lazy-load="http://maps.google.com/maps/api/js?key=AIzaSyCAJBuxY536nqagDeMq5zhwKp7eGXBMxZA&libraries=places">
+    <div map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCAJBuxY536nqagDeMq5zhwKp7eGXBMxZA&libraries=places">
       <map center="Green lake city, cipondoh, Jakarta barat" zoom="14" style="height: 600px">
       </map>
     </div>

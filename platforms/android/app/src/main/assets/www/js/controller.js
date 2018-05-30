@@ -88,12 +88,21 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
 
         };
         $scope.package_total    = Number(($scope.package * $scope.estimate).toFixed(1)).toLocaleString();
-        $scope.full_address = localStorage.getItem('full_address');
-        $scope.address_note = localStorage.getItem('address_note');
-        $scope.lng          = JSON.parse(localStorage.getItem('location')).lng;
-        $scope.lat          = JSON.parse(localStorage.getItem('location')).lat;
-        $scope.map_image    = 'https://maps.googleapis.com/maps/api/staticmap?center='+$scope.lat+','+$scope.lng +'&zoom=13&scale=1&size=300x110&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C'+$scope.lat+','+$scope.lng;
+        $scope.full_address = (localStorage.getItem('full_address')) ? localStorage.getItem('full_address') : '';
+        $scope.address_note = (localStorage.getItem('address_note')) ? localStorage.getItem('address_note') : '';
+        if(localStorage.getItem('location')){
+            $scope.lng          = JSON.parse(localStorage.getItem('location')).lng;
+        }
+        if(localStorage.getItem('location')){
+            $scope.lat          = JSON.parse(localStorage.getItem('location')).lat;
+        }
+        $scope.map_image    = 'http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyA4cvpCYxiYr2gbDptRIEAY4nF9dF0j--s&center='+$scope.lat+','+$scope.lng +'&zoom=13&scale=1&size=300x110&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C'+$scope.lat+','+$scope.lng;
 
+        var token     = localStorage.getItem('remember_token');
+        $scope.loggedIn    = (typeof token !== 'undefined' && token !== null &&  token !== '');
+        $scope.home         = function () {
+            $location.path('/app/home');
+        };
         /*start modal*/
         var $ctrl = $scope;
 
@@ -180,7 +189,7 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
             $location.path('/app/validatePhone');
             var err   = serve.checkProfilePost($scope,$location,user);
             if(err.status === true){
-                document.getElementById("result-message").innerHTML = err.message;
+                $location.path('/app/profileField');
 
                 return false;
             }
@@ -210,7 +219,9 @@ uver.controller('orderCtrl', ['$scope', '$rootScope', '$location','$stateParams'
     function($scope, $rootScope, $location, $stateParams,$http, orderService) {
 
         var id              = $stateParams.param1;
-        $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        if(localStorage.getItem('merchant')){
+            $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        }
         $scope.order_id     = id;
         $scope.orderApproved    = function () {
             $location.path('/app/orderApproved');
@@ -219,7 +230,9 @@ uver.controller('orderCtrl', ['$scope', '$rootScope', '$location','$stateParams'
 ]);
 uver.controller('orderDetailCtrl', ['$scope', '$rootScope', '$location','$stateParams','$http', 'orderService',
     function($scope, $rootScope, $location, $stateParams,$http, orderService) {
-        $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        if(localStorage.getItem('merchant')){
+            $scope.merchant     = JSON.parse(localStorage.getItem('merchant'));
+        }
         var id              = $stateParams.param1;
         result  = orderService.detailOrderRequest($scope, $http, $location, id).then(function (result) {
             if(result){

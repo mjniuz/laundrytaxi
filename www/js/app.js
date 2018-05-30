@@ -15,6 +15,23 @@ uver.run(function($ionicPlatform) {
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    if(platforms !== 'browser'){
+        var isUpdate    = httpGet(mainURL + "check-for-update?version=1.0.0");
+        console.log(isUpdate);
+        if(Boolean(isUpdate.status) === false){
+            console.log("update euy");
+            window.location = '/#/app/version';
+        }
+    }
+      // check update
+      function httpGet(theUrl)
+      {
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+          xmlHttp.send( null );
+          return xmlHttp.responseText;
+      }
   });
 }).config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)

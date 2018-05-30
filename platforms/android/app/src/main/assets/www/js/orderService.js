@@ -1,4 +1,3 @@
-var mainURL = 'http://cuber.local/api/';
 uver.factory('orderService', function() {
     order = {};
 

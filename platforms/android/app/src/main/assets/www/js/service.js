@@ -20,6 +20,7 @@ uver.factory('pickUpPlace', function() {
                 }
 
                 marker      = placeMarker(places[0].geometry.location,map, $scope, $rootScope);
+                console.log(marker);
                 //addInfoWindow(map,marker,$scope,$rootScope);
                 map.setCenter(marker.getPosition());
             });
