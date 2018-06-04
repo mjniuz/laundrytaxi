@@ -33,13 +33,13 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.profile', {
     cache: false,
     url: '/profile',
-    templateUrl: 'templates/profile.html',
+    templateUrl: 'templates/profile.html?v=1',
     controller: 'userCtrl'
   })
   .state('app.validatePhoneForm', {
       cache: false,
       url: '/validatePhoneForm',
-      templateUrl: 'templates/validatePhoneForm.html',
+      templateUrl: 'templates/validatePhoneForm.html?v=1',
       controller: 'pickupCtrl'
   })
   .state('app.cancel', {
@@ -57,37 +57,37 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.summaryOrder', {
       cache: false,
       url: '/summaryOrder',
-      templateUrl: 'templates/summaryOrder.html',
+      templateUrl: 'templates/summaryOrder.html?v=1',
       controller: 'pickupCtrl'
   })
   .state('app.selectPackage', {
       cache: false,
       url: '/selectPackage',
-      templateUrl: 'templates/selectPackage.html',
+      templateUrl: 'templates/selectPackage.html?v=1',
       controller: 'pickupCtrl'
   })
   .state('app.profileField', {
     cache: false,
     url: '/profileField',
-    templateUrl: 'templates/profileField.html',
+    templateUrl: 'templates/profileField.html?v=1',
     controller: 'pickupCtrl'
   })
   .state('app.validatePhone', {
       cache: false,
       url: '/validatePhone',
-      templateUrl: 'templates/loadingValidatePhone.html',
+      templateUrl: 'templates/loadingValidatePhone.html?v=1',
       controller: 'pickupCtrl'
   })
   .state('app.pickupFrom', {
     cache: false,
     url: '/pickupFrom',
-    templateUrl: 'templates/pickupFrom.html',
+    templateUrl: 'templates/pickupFrom.html?v=1',
     controller: 'pickupCtrl'
   })
   .state('app.createOrder', {
       cache: false,
       url: '/createOrder',
-      templateUrl: 'templates/loadingOrder.html',
+      templateUrl: 'templates/loadingOrder.html?v=1',
       controller: 'pickupCtrl'
   })
   .state('app.orderApproved', {
@@ -99,13 +99,13 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.orderDetail', {
       cache: false,
       url: '/orderDetail/:param1',
-      templateUrl: 'templates/orderDetail.html',
+      templateUrl: 'templates/orderDetail.html?v=1',
       controller: 'orderDetailCtrl'
   })
   .state('app.orderList', {
       cache: false,
       url: '/orderList',
-      templateUrl: 'templates/orderList.html',
+      templateUrl: 'templates/orderList.html?v=1',
       controller: 'orderListCtrl'
   })
   .state('app.deliverTracking', {
