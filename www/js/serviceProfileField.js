@@ -70,6 +70,7 @@ uver.factory('serve', function() {
             transformRequest: function(obj) {
                 var param       = {
                     'phone': user.phone,
+                    'full_name': user.full_name,
                     'remember_token': token
                 };
                 var str = [];
