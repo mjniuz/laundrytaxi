@@ -9,7 +9,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.home', {
       cache: false,
       url: '/home',
-      templateUrl: 'templates/home.html',
+      templateUrl: 'templates/home.html?v=1',
       controller: 'homeCtrl'
   })
   .state('app.dashboard', {
@@ -51,7 +51,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.contact', {
     cache: false,
     url: '/contact',
-    templateUrl: 'templates/contact.html',
+    templateUrl: 'templates/contact.html?v=1',
     controller: 'userCtrl'
   })
   .state('app.summaryOrder', {
