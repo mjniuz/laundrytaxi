@@ -81,7 +81,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.pickupFrom', {
     cache: false,
     url: '/pickupFrom',
-    templateUrl: 'templates/pickupFrom.html?v=1',
+    templateUrl: 'templates/pickupFrom.html?v=1.0',
     controller: 'pickupCtrl'
   })
   .state('app.createOrder', {
