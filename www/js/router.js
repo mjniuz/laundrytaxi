@@ -30,17 +30,17 @@ uver.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/register.html',
     controller: 'userCtrl'
   })
-  .state('app.addPayment', {
-    cache: false,
-    url: '/addPayment',
-    templateUrl: 'templates/addPayment.html',
-    controller: 'userCtrl'
-  })
   .state('app.profile', {
     cache: false,
     url: '/profile',
     templateUrl: 'templates/profile.html',
     controller: 'userCtrl'
+  })
+  .state('app.validatePhoneForm', {
+      cache: false,
+      url: '/validatePhoneForm',
+      templateUrl: 'templates/validatePhoneForm.html',
+      controller: 'pickupCtrl'
   })
   .state('app.cancel', {
     cache: false,
@@ -61,7 +61,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
       controller: 'pickupCtrl'
   })
   .state('app.selectPackage', {
-      cache: true,
+      cache: false,
       url: '/selectPackage',
       templateUrl: 'templates/selectPackage.html',
       controller: 'pickupCtrl'

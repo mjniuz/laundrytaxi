@@ -1,0 +1,34 @@
+<ion-view title="Validasi HP">
+  <ion-content class="cancel">
+        <div class="content">
+            <form name="formuser" ng-submit="validatePhoneSubmit(user)">
+                <div class="box-summary">
+                    <p>
+                        Kode aktivasi telah kami kirim ke nomor hp Anda ({{user.phone}}), silahkan periksa atau tunggu beberapa menit
+                    </p>
+                </div>
+                <div class="list list-inset uver-form login-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Kode Aktivasi</span>
+                        <input type="text" placeholder="Kode Aktivasi" ng-model="user.activate_code" value="">
+                        <div ng-if="err.activate_code"><span class="ion-alert red"> {{err.activate_code}}</span></div>
+                    </label>
+                </div>
+                <div style="text-align: center">
+                    <div id="result-message" class="red"></div>
+                </div>
+                <div class="cancel-button">
+                  <button type="submit" class="uver-btn btn-cancel" ng-model="button" ng-disabled="disabled_button">Kirim Kode</button>
+                  <button type="button" ng-click="profileField();" class="button button-block button-clear color-uver uver-text-clear">
+                      Kembali
+                  </button>
+                </div>
+            </form>
+        </div>
+  </ion-content>
+    <div class="dot-container">
+        <span class="dot-ico active"></span>
+        <span class="dot-ico active"></span>
+        <span class="dot-ico"></span>
+    </div>
+</ion-view>

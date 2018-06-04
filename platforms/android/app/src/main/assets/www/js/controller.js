@@ -1,6 +1,23 @@
 
-uver.controller('homeCtrl', ['$scope', '$rootScope', '$location',
-    function($scope, $rootScope, $location) {
+uver.controller('homeCtrl', ['$scope', '$rootScope', '$location','$http',
+    function($scope, $rootScope, $location, $http) {
+
+        if(platforms !== 'browser'){
+            var $theURL     = mainURL + "check-for-update?version="+version;
+            $http({
+                url: $theURL,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: "GET"
+            }).then(function(response) {
+				console.log(response.data);
+                if(Boolean(response.data.status) === true){
+                    $location.path('/app/version');
+                    return false;
+                }
+            }, function(response) {
+            });
+        }
+
         var token     = localStorage.getItem('remember_token');
         $scope.loggedIn    = (typeof token !== 'undefined' && token !== null &&  token !== '');
         $scope.home = function () {
@@ -258,3 +275,17 @@ uver.controller('orderListCtrl', ['$scope', '$rootScope', '$location','$statePar
 
     }]
 );
+
+uver.controller('versionCtrl', ['$scope', '$rootScope', '$location',
+    function($scope, $rootScope, $location) {
+        $scope.link_update  = link_update;
+    }]
+);
+// check update
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}

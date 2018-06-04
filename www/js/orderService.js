@@ -64,7 +64,7 @@ function requestDetailOrder($scope, $http, $location, id) {
     }).then(function(response) {
         if(response.data.status === true){
 
-            return response.data.data;
+            return response.data;
         }
 
         return false;
@@ -116,13 +116,11 @@ function requestSubmitOrder($http, $location, count) {
 
 function processInput(){
     var result  = {};
-    result.full_name    = localStorage.getItem('full_name');
-    result.phone        = localStorage.getItem('phone');
+    result.remember_token    = localStorage.getItem('remember_token');
     result.note         = localStorage.getItem('note');
     result.estimate     = localStorage.getItem('estimate');
-    result.package      = localStorage.getItem('package');
-    result.estimate     = localStorage.getItem('estimate');
-    result.package      = localStorage.getItem('package');
+    result.package_id   = localStorage.getItem('package_id');
+    result.full_name    = localStorage.getItem('full_name');
 
     result.full_address = localStorage.getItem('full_address');
     result.address_note = localStorage.getItem('address_note');

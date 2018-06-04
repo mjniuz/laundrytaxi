@@ -3,24 +3,17 @@
         <div class="content">
             <form name="formpackage" ng-submit="summaryOrder(pack)">
                 <div class="list">
-                    <label class="item item-radio">
-                        <input type="radio" name="package" value="6000" ng-model="pack.package">
-                        <div class="item-content">
-                            Rp 6.000/kg (3 Hari)
-                        </div>
-                    </label>
-                    <label class="item item-radio">
-                        <input type="radio" name="package" value="8000" ng-model="pack.package">
-                        <div class="item-content">
-                            Rp 8.000/kg (2 Hari)
-                        </div>
-                    </label>
-                    <label class="item item-radio">
-                        <input type="radio" name="package" value="10000" ng-model="pack.package">
-                        <div class="item-content">
-                            Rp 10.000/kg (1 Hari)
-                        </div>
-                    </label>
+                    <input type="hidden" value="{{getPackages()}}">
+                    <div ng-repeat="value in packages">
+                        <label class="item item-radio">
+                            <input type="radio" class="select-package" ng-click="selectedPackage(value)" value="{{value}}"
+                                   ng-model="pack.package" ng-checked="(value.id === pack.package.id)">
+                            <div class="item-content">
+                                {{value.name}}
+                            </div>
+                        </label>
+                    </div>
+                    <div ng-if="selected.package"><span class="red"> {{selected.description}}</span></div>
                     <div ng-if="err.status"><span class="ion-alert red"> {{err.pack.package}}</span></div>
                 </div>
                 <div class="list list-inset uver-form login-form">

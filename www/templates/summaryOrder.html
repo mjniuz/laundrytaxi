@@ -29,31 +29,23 @@
                         <div class="box-summary">
                             <p class="title">Paket <button class="button-clear color-uver" type="button" ng-click="selectPackage()" title="Ubah"><i class="fa fa-pencil"></i></button></p>
                             <p>
-                                Rp {{package}}/kg
-                                @{{estimate}}
+                                {{package.name}}
+                                @{{estimate}}kg
                             </p>
                         </div>
                     </div>
                 </div>
                 <br/>
                 <div class="box-summary">
-                    <div class="row">
-                        <div class="column">
-                            <p class="title">Paket {{package_text}} @{{estimate}}Kg</p>
-                        </div>
-                        <div class="column">
-                            <div class="float-right">
-                                {{package_total}}
+                    <div  ng-repeat="(k, price) in prices">
+                        <div class="row">
+                            <div class="column">
+                                <p class="title">{{price.title}}</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <p class="title">Biaya Pickup (PROMO)</p>
-                        </div>
-                        <div class="column">
-                            <div class="float-right">
-                                0
+                            <div class="column">
+                                <div class="float-right">
+                                    {{price.price_text}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,7 +56,7 @@
                         </div>
                         <div class="column">
                             <div class="float-right">
-                                <b>Rp {{package_total}}</b>
+                                <b>Rp {{grand_total}}</b>
                             </div>
                         </div>
                     </div>

@@ -12,9 +12,17 @@ uver.factory('pickUpPlace', function() {
             map.addListener('bounds_changed', function() {
                 searchBox.setBounds(map.getBounds());
             });
+
+            /*document.getElementById('my-button').onclick = function () {
+                var input = document.getElementById('my-input');
+
+                google.maps.event.trigger(input, 'focus');
+                google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
+            };*/
             searchBox.addListener('places_changed', function() {
                 var places = searchBox.getPlaces();
 
+                console.log("place clicked");
                 if (places.length === 0) {
                     return null;
                 }
@@ -22,6 +30,7 @@ uver.factory('pickUpPlace', function() {
                 marker      = placeMarker(places[0].geometry.location,map, $scope, $rootScope);
                 //addInfoWindow(map,marker,$scope,$rootScope);
                 map.setCenter(marker.getPosition());
+                console.log("map changed");
             });
             map.addListener('click', function(event) {
                 if (event.placeId) {

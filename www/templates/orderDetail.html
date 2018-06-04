@@ -63,37 +63,28 @@
                  </p>
              </div>
              <br/>
+
              <div class="box-summary">
-                 <div class="row">
-                     <div class="column">
-                         <p class="title">Paket {{order.package}} @{{order.estimate}}Kg</p>
-                     </div>
-                     <div class="column">
-                         <div class="float-right">
-                             {{order.package_total}}
+                 <div  ng-repeat="(k, price) in order.prices">
+                     <div class="row">
+                         <div class="column">
+                             <p class="title">{{price.title}}</p>
                          </div>
-                     </div>
-                 </div>
-                 <div class="row">
-                     <div class="column">
-                         <p class="title">Biaya Pickup (PROMO)</p>
-                     </div>
-                     <div class="column">
-                         <div class="float-right">
-                             0
+                         <div class="column">
+                             <div class="float-right">
+                                 {{price.price_text}}
+                             </div>
                          </div>
                      </div>
                  </div>
                  <hr/>
                  <div class="row">
                      <div class="column">
-                         <p class="red title">Total <span ng-if="order.is_estimate">(Estimasi)</span>
-                             <span ng-if="!order.is_estimate">(Actual)</span>
-                         </p>
+                         <p class="red title">Total</p>
                      </div>
                      <div class="column">
                          <div class="float-right">
-                             <b>Rp {{order.package_total}}</b>
+                             <b>Rp {{order.grand_total}}</b>
                          </div>
                      </div>
                  </div>

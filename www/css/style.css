@@ -74,6 +74,9 @@ input:-ms-input-placeholder {
   float: left;
   width: 50%;
 }
+button:disabled{
+  background-color: #8f8f8f !important;
+}
 
 /* Clear floats after the columns */
 .row:after {

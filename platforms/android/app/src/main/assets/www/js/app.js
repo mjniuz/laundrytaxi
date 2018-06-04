@@ -15,6 +15,42 @@ uver.run(function($ionicPlatform) {
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+      document.addEventListener("deviceready", (function() {
+          console.log('ready update euy');
+          updater = new LiveUpdate({
+              updateUrl: mainURL + 'check-for-update',
+              originalBuildId: 1,
+              afterDownloadComplete: function (currentId, latestId) {
+                  var confirmPopup, d;
+                  d = $q.defer();
+                  confirmPopup = $ionicPopup.confirm({
+                      title: 'Update Available',
+                      template: sprintf("Version %d is available for download (you are running %d). Update now?", latestId, currentId),
+                      buttons: [
+                          {
+                              text: 'Update Later',
+                              onTap: (function () {
+                                  return d.reject();
+                              })
+                          }, {
+                              text: 'Update Now',
+                              type: 'button-positive',
+                              onTap: (function () {
+                                  return d.resolve();
+                              })
+                          }
+                      ]
+                  });
+                  return d.promise;
+              }
+          });
+          updater.go(); // Check for updates, install, and then launch
+          updater.checkOnce()
+              .then(function (currentBuildId) {
+                  console.log("The current build ID is", currentBuildId);
+              });
+      }), false);
   });
 }).config(['$httpProvider', function ($httpProvider) {
     //Reset headers to avoid OPTIONS request (aka preflight)
