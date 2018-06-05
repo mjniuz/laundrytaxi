@@ -93,7 +93,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.orderApproved', {
       cache: false,
       url: '/orderApproved/:param1',
-      templateUrl: 'templates/orderApproved.html',
+      templateUrl: 'templates/orderApproved.html?v=1',
       controller: 'orderCtrl'
   })
   .state('app.orderDetail', {
