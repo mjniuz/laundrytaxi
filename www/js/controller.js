@@ -272,7 +272,8 @@ uver.controller('pickupCtrl', ['$scope', '$rootScope', '$location', '$http', '$c
                     $location.path('/app/selectPackage');
                     return true;
                 }else{
-                    document.getElementById("result-message").innerHTML = 'Nomor hp tidak valid!!, hapar masukan no hp dengan benar';
+                    document.getElementById('loading-order-msg').innerHTML = '';
+                    document.getElementById("result-message").innerHTML = result.message;
                     return false;
                 }
             });
