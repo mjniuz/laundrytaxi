@@ -1,23 +1,12 @@
 
-uver.controller('homeCtrl', ['$scope', '$rootScope', '$location','$http',
-    function($scope, $rootScope, $location, $http) {
-
-        if(platforms !== 'browser'){
-            var $theURL     = mainURL + "check-for-update?version="+version;
-            $http({
-                url: $theURL,
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                method: "GET"
-            }).then(function(response) {
-				console.log(response.data);
-                if(Boolean(response.data.status) === true){
-                    $location.path('/app/version');
-                    return false;
-                }
-            }, function(response) {
-            });
-        }
-
+uver.controller('homeCtrl', ['$scope', '$rootScope', '$location','$http', '$stateParams',
+    function($scope, $rootScope, $location, $http, $stateParams) {
+		var deviceHw	= $location.search().device_hardware;
+		var deviceId	= $location.search().device_id;
+		if(typeof deviceId !== 'undefined' && typeof deviceHw !== 'undefined'){
+			localStorage.setItem('device_hardware', deviceHw);
+			localStorage.setItem('device_id', deviceId);
+		}
         var token     = localStorage.getItem('remember_token');
         $scope.loggedIn    = (typeof token !== 'undefined' && token !== null &&  token !== '');
         $scope.home = function () {

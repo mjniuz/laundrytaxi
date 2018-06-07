@@ -62,6 +62,9 @@ uver.factory('serve', function() {
     };
     serve.validatePhone    = function ($scope, $location, $http, user) {
         var token       = localStorage.getItem('remember_token');
+		var deviceHw	= localStorage.getItem('device_hardware') ? localStorage.getItem('device_hardware') : '';
+		var deviceId	= localStorage.getItem('device_id') ? localStorage.getItem('device_id') : '';
+		
         var $theURL     = mainURL + 'validate-phone';
         return $http({
             url: $theURL,
@@ -71,7 +74,9 @@ uver.factory('serve', function() {
                 var param       = {
                     'phone': user.phone,
                     'full_name': user.full_name,
-                    'remember_token': token
+                    'remember_token': token,
+					'device_id': deviceId,
+					'device_hardware': deviceHw
                 };
                 var str = [];
                 for(var p in param)
