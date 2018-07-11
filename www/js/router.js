@@ -9,7 +9,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.home', {
       cache: false,
       url: '/home',
-      templateUrl: 'templates/home.html?v=1',
+      templateUrl: 'templates/home.html?v=1.0.0',
       controller: 'homeCtrl'
   })
   .state('app.dashboard', {
