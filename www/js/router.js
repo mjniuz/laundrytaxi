@@ -51,7 +51,7 @@ uver.config(function($stateProvider, $urlRouterProvider) {
   .state('app.contact', {
     cache: false,
     url: '/contact',
-    templateUrl: 'templates/contact.html?v=1',
+    templateUrl: 'templates/contact.html?v=1.0.1',
     controller: 'userCtrl'
   })
   .state('app.summaryOrder', {
